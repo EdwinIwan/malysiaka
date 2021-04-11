@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malysiaka</title>
+    <style>
+      div {
+        background-color: black;
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .h1 {
+        font-size: 100px;
+        font-weight: bold;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <di>
+      <h1 id="value"></h1>
+    </di>
+
+    <script>
+      const finalTime = new Date(2021, 5, 15, 8, 30).getTime();
+      const element = document.getElementById("value");
+      const setText = function () {
+        const currentTime = Date.now();
+        const diff = finalTime - currentTime;
+        const days = Math.floor(diff / (24 * 60 * 60 * 1000));
+        const daysms = diff % (24 * 60 * 60 * 1000);
+        const hours = Math.floor(daysms / (60 * 60 * 1000));
+        const hoursms = diff % (60 * 60 * 1000);
+        const minutes = Math.floor(hoursms / (60 * 1000));
+        const minutesms = diff % (60 * 1000);
+        const sec = Math.floor(minutesms / 1000);
+        const value = days + ":" + hours + ":" + minutes + ":" + sec;
+
+        element.innerHTML = value;
+      };
+
+      setText();
+
+      setInterval(function () {
+        setText();
+      }, 1000);
+    </script>
+  </body>
+</html>
