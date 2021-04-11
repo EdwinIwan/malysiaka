@@ -43,7 +43,15 @@
         const minutes = Math.floor(hoursms / (60 * 1000));
         const minutesms = diff % (60 * 1000);
         const sec = Math.floor(minutesms / 1000);
-        const value = days + ":" + hours + ":" + minutes + ":" + sec;
+        const value =
+          "Dni:" +
+          days +
+          " " +
+          hours.padStart(2, 0) +
+          ":" +
+          minutes.padStart(2, 0) +
+          ":" +
+          sec.padStart(2, 0);
 
         element.innerHTML = value;
       };
